@@ -1,20 +1,64 @@
+import 'package:fasih_ai/src/app.dart';
+import 'package:fasih_ai/src/exceptions/async_error_logger.dart';
+import 'package:fasih_ai/src/exceptions/error_logger.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'src/app.dart';
-import 'src/settings/settings_controller.dart';
-import 'src/settings/settings_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+// ignore:depend_on_referenced_packages
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
-  // Set up the SettingsController, which will glue user settings to multiple
-  // Flutter Widgets.
-  final settingsController = SettingsController(SettingsService());
+  WidgetsFlutterBinding.ensureInitialized();
+  // turn off the # in the URLs on the web
+  usePathUrlStrategy();
+  // final localCartRepository = await SembastCartRepository.makeDefault();
+  // // * Create ProviderContainer with any required overrides
+  // final container = ProviderContainer(
+  //   overrides: [
+  //     localCartRepositoryProvider.overrideWithValue(localCartRepository),
+  //   ],
+  //   observers: [AsyncErrorLogger()],
+  // );
+  // * Initialize CartSyncService to start the listener
+  // container.read(cartSyncServiceProvider);
+  // final errorLogger = container.read(errorLoggerProvider);
+  // * Register error handlers. For more info, see:
+  // * https://docs.flutter.dev/testing/errors
+  // final errorLogger = container.read(errorLoggerProvider);
+  // registerErrorHandlers(errorLogger);
+  // * Entry point of the app
+  // runApp(UncontrolledProviderScope(
+  //   container: container,
+  //   child: const MyApp(),
+  // ));
+  // runApp(const MyApp());
+  runApp(
+    ProviderScope(
+      observers: [AsyncErrorLogger()],
+      child: const MyApp(),
+    ),
+  );
+}
 
-  // Load the user's preferred theme while the splash screen is displayed.
-  // This prevents a sudden theme change when the app is first displayed.
-  await settingsController.loadSettings();
-
-  // Run the app and pass in the SettingsController. The app listens to the
-  // SettingsController for changes, then passes it further down to the
-  // SettingsView.
-  runApp(MyApp(settingsController: settingsController));
+void registerErrorHandlers(ErrorLogger errorLogger) {
+  // * Show some error UI if any uncaught exception happens
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    errorLogger.logError(details.exception, details.stack);
+  };
+  // * Handle errors from the underlying platform/OS
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
+    errorLogger.logError(error, stack);
+    return true;
+  };
+  // * Show some error UI when any widget in the app fails to build
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: const Text('An error occurred'),
+      ),
+      body: Center(child: Text(details.toString())),
+    );
+  };
 }
