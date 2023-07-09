@@ -13,20 +13,22 @@ class MyApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
       onGenerateTitle: (BuildContext context) => 'My Shop',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.black87,
-          foregroundColor: Colors.white,
-          elevation: 0,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black, // background (button) color
-            foregroundColor: Colors.white, // foreground (text) color
-          ),
-        ),
-      ),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.grey,
+      //   appBarTheme: const AppBarTheme(
+      //     backgroundColor: Colors.black87,
+      //     foregroundColor: Colors.white,
+      //     elevation: 0,
+      //   ),
+      //   elevatedButtonTheme: ElevatedButtonThemeData(
+      //     style: ElevatedButton.styleFrom(
+      //       backgroundColor: Colors.black, // background (button) color
+      //       foregroundColor: Colors.white, // foreground (text) color
+      //     ),
+      //   ),
+      // ),
+      // Make it dark mode
+      theme: ThemeData.dark(),
     );
   }
 }

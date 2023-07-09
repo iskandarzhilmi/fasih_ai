@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "299008599099",
+    "firebase_url": "https://quranik-ec616-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "quranik-ec616",
+    "storage_bucket": "quranik-ec616.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299008599099:android:891f37ab603db3f39ca81e",
+        "android_client_info": {
+          "package_name": "com.example.fasih_ai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299008599099-9v014m32qmns5vb7s9qt792jr6umli5m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu6bf9gyraJ3IXUUfavLqDAvlNvQnI5y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299008599099-9v014m32qmns5vb7s9qt792jr6umli5m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "299008599099-46v0ft9bb9puoigu567dherggfsrh0gc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fasihAi"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299008599099:android:b2e8ae53620568659ca81e",
+        "android_client_info": {
+          "package_name": "com.example.quranik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299008599099-9v014m32qmns5vb7s9qt792jr6umli5m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu6bf9gyraJ3IXUUfavLqDAvlNvQnI5y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299008599099-9v014m32qmns5vb7s9qt792jr6umli5m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "299008599099-46v0ft9bb9puoigu567dherggfsrh0gc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fasihAi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
